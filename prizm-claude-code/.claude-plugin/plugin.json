@@ -11,5 +11,6 @@
   "icon": "./assets/icon.png",
   "documentationUrl": "https://assistant.prizm-coach.com/espace.html",
   "privacyPolicyUrl": "https://prizm-coach.com/privacy.html#mcp-assistant-connector",
-  "termsOfServiceUrl": "https://prizm-coach.com/terms.html"
+  "termsOfServiceUrl": "https://prizm-coach.com/terms.html",
+  "license": "MIT"
 }
