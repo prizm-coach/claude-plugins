@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "prizm": {
+      "type": "http",
+      "url": "https://mcp.prizm-coach.com/mcp"
+    }
+  }
+}

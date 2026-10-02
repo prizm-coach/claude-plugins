@@ -1,0 +1,15 @@
+{
+  "name": "prizm",
+  "displayName": "Prizm",
+  "version": "0.1.0",
+  "description": "Les données d'entraînement d'endurance d'un athlète Prizm : forme du jour, zones et seuils, plan de la semaine, séances réalisées, saison et courses. L'accès est personnel, limité au compte de l'athlète, et coupé quand il le décide.",
+  "author": {
+    "name": "Prizm",
+    "url": "https://prizm-coach.com/"
+  },
+  "homepage": "https://prizm-coach.com/",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://assistant.prizm-coach.com/espace.html",
+  "privacyPolicyUrl": "https://prizm-coach.com/privacy.html#mcp-assistant-connector",
+  "termsOfServiceUrl": "https://prizm-coach.com/terms.html"
+}

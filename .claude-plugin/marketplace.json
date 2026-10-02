@@ -1,0 +1,16 @@
+{
+  "name": "prizm-plugins",
+  "description": "Plugins Prizm pour Claude Code : le connecteur Prizm et le coach d'endurance.",
+  "owner": {
+    "name": "Prizm",
+    "url": "https://prizm-coach.com/"
+  },
+  "plugins": [
+    {
+      "name": "prizm",
+      "source": "./prizm-claude-code",
+      "description": "Connecteur Prizm (forme, zones, plan, séances, saison, courses) et skill coach-prizm.",
+      "category": "sports"
+    }
+  ]
+}
