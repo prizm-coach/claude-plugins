@@ -23,7 +23,7 @@ ChatGPT standard : fetch `athlete-state`.
 ### Mon sommeil et ma récupération passés — DISPONIBLE — CONSULTER
 L'athlète dit : « Comment dormais-je en juin ? » · « Montre ma récupération de la semaine dernière. » · « Pourquoi mon sommeil était irrégulier cette semaine ? »
 Catalogue complet : get_recovery_sleep_history (`Historique de recuperation et sommeil`)
-ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
+ChatGPT standard : fetch `recovery-sleep-history`.
 À retenir : Prizm répond, rien ne change dans le plan.
 
 ### Mes repères d'entraînement — DISPONIBLE — CONSULTER
@@ -34,7 +34,7 @@ ChatGPT standard : fetch `training-zones`.
 
 ### Mon plan à venir — DISPONIBLE — CONSULTER
 L'athlète dit : « C'est quoi ma prochaine séance ? » · « Que dit mon plan demain ? » · « À quoi ressemble ma semaine ? » · « Combien de temps dure ma sortie longue ? »
-Catalogue complet : get_planned_sessions (`Séances à venir`), get_planned_session_sheet (`Fiche détaillée d'une séance`), render_weekly_plan (`Plan hebdomadaire visuel`), render_weekly_plan_v2 (`Plan hebdomadaire interactif`)
+Catalogue complet : get_planned_sessions (`Séances à venir`), get_planned_session_sheet (`Fiche détaillée d'une séance`), render_weekly_plan (`Plan hebdomadaire visuel`), render_weekly_plan_v2 (`Plan hebdomadaire interactif`), get_planned_sessions_batch_status (`Suivre un lot de séances`)
 ChatGPT standard : fetch `planned-sessions` · fetch `planned-session-sheet.v1`.
 À retenir : Prizm répond, rien ne change dans le plan.
 
@@ -52,8 +52,8 @@ ChatGPT standard : fetch `week-context` · fetch `season-context`.
 
 ### Mon bilan de semaine et mes sorties — DISPONIBLE — CONSULTER
 L'athlète dit : « Débriefe ma semaine. » · « Est-ce que j'ai bien suivi mon plan ? » · « Montre-moi mes dernières sorties. » · « Est-ce que j'ai décroché sur la fin dimanche ? » · « Analyse ma sortie d'hier. »
-Catalogue complet : get_week_report (`Débrief de la semaine`), render_week_comparison (`Réalisé vs planifié de la semaine`), list_recent_activities (`Dernières sorties`), get_activity_details (`Analyse d'une sortie`), get_activity_laps (`Tours et longueurs d'une sortie`), get_activity_segments (`Structure réalisée d'une sortie`), get_session_context (`Lire le contexte d'une séance`)
-ChatGPT standard : fetch `week-report` · fetch `recent-activities` · fetch `activity-detail`.
+Catalogue complet : get_provider_connection_status (`État des services reliés`), get_week_report (`Débrief de la semaine`), render_week_comparison (`Réalisé vs planifié de la semaine`), list_recent_activities (`Dernières sorties`), get_activity_details (`Analyse d'une sortie`), get_activity_laps (`Tours et longueurs d'une sortie`), get_activity_segments (`Structure réalisée d'une sortie`), get_session_context (`Lire le contexte d'une séance`)
+ChatGPT standard : fetch `provider-connections` · fetch `week-report` · fetch `recent-activities` · fetch `activity-detail`.
 À retenir : Prizm répond, rien ne change dans le plan.
 
 ### Relier une séance prévue à ce qui a été réalisé — DISPONIBLE — CONSULTER
@@ -154,9 +154,21 @@ Catalogue complet : send_prizm_feedback (`Envoyer un retour à Prizm`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
 
+### Signaler un problème Prizm — DISPONIBLE — AJOUTER UNE INFORMATION
+L'athlète dit : « Signale à l’équipe que ce résultat semble incohérent. » · « Transmets ce problème à l’équipe Prizm avec cette séance. »
+Catalogue complet : report_prizm_bug (`Signaler un problème Prizm`), report_prizm_anomaly (`Signaler une anomalie Prizm`)
+ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
+À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
+
 ### Mes séances mises de côté — DISPONIBLE — AJOUTER UNE INFORMATION
 L'athlète dit : « Garde cette séance, je veux la refaire. » · « Quelles séances j'ai mises de côté ? » · « Refais-moi ma séance de seuil habituelle. »
 Catalogue complet : list_session_templates (`Mes séances mises de côté`), save_session_template (`Mettre une séance de côté`)
+ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
+À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
+
+### Mon profil — DISPONIBLE — AJOUTER UNE INFORMATION
+L'athlète dit : « Quelles informations te manquent pour me suivre ? » · « Mon fuseau horaire est Europe/Paris. »
+Catalogue complet : get_profile_gaps (`Informations manquantes du profil`), update_athlete_profile (`Enregistrer les faits du profil`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
 
@@ -179,8 +191,8 @@ ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm o
 À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
 
 ### Mes courses préparées — DISPONIBLE — AJOUTER UNE INFORMATION
-L'athlète dit : « J'ai une course le 20 septembre, prépare-la. » · « Le départ est finalement à 8h, pas 9h. » · « Quelles courses j'ai en préparation ? »
-Catalogue complet : list_race_events (`Voir mes courses préparées`), create_race_event (`Enregistrer une course à préparer`), update_race_event (`Modifier une course préparée`)
+L'athlète dit : « J'ai une course le 20 septembre, prépare-la. » · « Le départ est finalement à 8h, pas 9h. » · « Quelles courses j'ai en préparation ? » · « Oui, c'était bien ma course, confirme. » · « Non, ce n'était pas une course, annule. »
+Catalogue complet : list_race_events (`Voir mes courses préparées`), create_race_event (`Enregistrer une course à préparer`), update_race_event (`Modifier une course préparée`), respond_to_race_recognition (`Confirmer ou annuler une course reconnue`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
 
@@ -206,7 +218,7 @@ ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm o
 
 ### Signaler une blessure et la suivre — DISPONIBLE — AJOUTER UNE INFORMATION
 L'athlète dit : « J'ai mal au tendon d'Achille depuis lundi. » · « Ma douleur au genou a disparu. »
-Catalogue complet : declare_injury (`Declarer une blessure`), update_injury_status (`Mettre a jour une blessure`), mark_injury_healed (`Marquer une blessure guerie`)
+Catalogue complet : declare_injury (`Declarer une blessure`), update_injury_status (`Mettre a jour une blessure`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : L'athlète ajoute une information : relis-lui ce que tu vas enregistrer et attends son oui.
 
@@ -258,9 +270,9 @@ Catalogue complet : move_or_skip_session (`Deplacer ou passer une seance`), prev
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : Prizm propose un changement : montre l'avant et l'après, et n'applique rien sans son oui.
 
-### Composer une séance et l'envoyer sur ma montre — DISPONIBLE — PROPOSER UN CHANGEMENT
-L'athlète dit : « Prépare-moi un 4x8 minutes au seuil pour jeudi. » · « Envoie cette séance sur ma Garmin. » · « Crée cette séance dans Prizm et envoie-la sur Wahoo. » · « Ajoute cette séance même si mon cycle est cassé. » · « Ma séance de demain n'est pas arrivée sur ma montre. »
-Catalogue complet : preview_planned_session (`Previsualiser une seance`), create_planned_session (`Creer une seance et l'envoyer`), generate_race_session (`Fabriquer la séance du jour J`), retry_provider_push (`Renvoyer une seance sur la montre`), reschedule_provider_push (`Replanifier une séance sur la montre`)
+### Créer et envoyer mes séances — DISPONIBLE — PROPOSER UN CHANGEMENT
+L'athlète dit : « Valide ce lot de séances. » · « Envoie cette séance sur ma Garmin. » · « Crée cette séance dans Prizm et envoie-la sur Wahoo. » · « Ajoute cette séance même si mon cycle est cassé. » · « Ma séance de demain n'est pas arrivée sur ma montre. » · « Prépare-moi un 4x8 minutes au seuil pour jeudi. »
+Catalogue complet : preview_planned_session (`Previsualiser une seance`), create_planned_session (`Creer une seance et l'envoyer`), preview_planned_sessions_batch (`Prévisualiser plusieurs séances`), create_planned_sessions_batch (`Appliquer un lot de séances`), generate_race_session (`Fabriquer la séance du jour J`), get_provider_delivery_status (`Vérifier l'envoi d'une séance`), manage_provider_delivery (`Gérer l'envoi différé d'une séance`), retry_provider_push (`Renvoyer une seance sur la montre`), reschedule_provider_push (`Replanifier une séance sur la montre`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : Prizm propose un changement : montre l'avant et l'après, et n'applique rien sans son oui.
 
@@ -272,7 +284,7 @@ ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm o
 
 ### Mes tests et mes seuils — DISPONIBLE — PROPOSER UN CHANGEMENT
 L'athlète dit : « J'ai refait un test de course, mets à jour mes repères. » · « Ce n'était pas un test, écarte-le. » · « Mets à jour ma puissance à vélo après mon test d'hier. »
-Catalogue complet : list_test_proposals (`Tests à valider`), validate_test_proposal (`Valider un test`), dismiss_test_proposal (`Écarter un test proposé`), record_manual_test (`Enregistrer un test passé`)
+Catalogue complet : list_test_proposals (`Tests à valider`), validate_test_proposal (`Valider un test`), dismiss_test_proposal (`Écarter un test proposé`), record_manual_test (`Enregistrer un test passé`), confirm_provider_weight (`Confirmer le poids du profil`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : Prizm propose un changement : montre l'avant et l'après, et n'applique rien sans son oui.
 
@@ -286,7 +298,7 @@ ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm o
 
 ### Ajouter une course ou un objectif — DISPONIBLE — PROPOSER UN CHANGEMENT
 L'athlète dit : « Ajoute le marathon de Paris du douze avril. »
-Catalogue complet : request_objective (`Demander l'ajout d'un objectif`), resolve_objective_request (`Trancher une demande d'objectif`)
+Catalogue complet : request_objective (`Demander l'ajout d'un objectif`), resolve_objective_request (`Trancher une demande d'objectif`), list_objective_requests (`Mes demandes d'objectif en cours`)
 ChatGPT standard : non atteignable, dis-le et renvoie vers l'application Prizm ou vers Claude.
 À retenir : Prizm propose un changement : montre l'avant et l'après, et n'applique rien sans son oui.
 

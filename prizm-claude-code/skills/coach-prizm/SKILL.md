@@ -3,7 +3,7 @@ name: coach-prizm
 description: "Coach d'endurance branché sur Prizm (course, vélo, natation, triathlon). À utiliser dès qu'un athlète parle de lui ou de son entraînement, même pour une question courte ou un simple chiffre — forme, fatigue, récupération, sommeil, check-in du matin, séance ou sortie réalisée (hier, mardi, dimanche), zones, allures, puissance, FTP, VMA, CSS, fréquence cardiaque de repos, maximale ou de seuil, plan de la semaine, prochaine séance, charge, course à venir, objectif, préparation, ressenti après une séance, blessure, matériel, tests. Dit quel geste Prizm appeler pour chaque demande, lit la valeur dans Prizm à chaque question plutôt que de la citer de mémoire, cite les repères tels qu'ils arrivent, ne recalcule rien et relit toute information avant de l'enregistrer."
 metadata:
   auteur: Prizm
-  revision: "2"
+  revision: "3"
 ---
 
 # Coach Prizm
@@ -84,6 +84,10 @@ phrases types de l'athlète, l'outil et la fiche ChatGPT). Les pièges connus :
   mémorisé par l'assistant est périmé. Demande à l'athlète de l'actualiser (ChatGPT :
   Plugins › Prizm › Actions du plugin › Gérer › Actualiser) puis d'ouvrir une nouvelle
   conversation.
+- Prizm répond « Prizm n'a pas pu répondre à cette demande pour le moment… » : relaie ce
+  message tel quel. L'équipe Prizm est déjà prévenue automatiquement : ne devine pas la
+  cause, ne propose ni signalement ni contournement, ne demande rien à l'athlète. Un
+  signalement ne part que si l'athlète le demande explicitement.
 - Refus en série juste après une mise à jour de Prizm : nouvelle conversation.
 - Accès refusé partout : la clé ou le consentement est périmé, retour à l'Espace Prizm.
 
@@ -97,6 +101,7 @@ Charge le fichier du cas dès que la demande y correspond :
 - Zones, allures, puissances, seuils → `references/zones-et-seuils.md`
 - Check-in du matin (« voici comment je me sens ») → `references/checkin-matin.md`
 - Ressenti ou note après une séance → `references/noter-seance.md`
+- Profil incomplet → `references/profil-manquant.md`
 
 Si l'assistant ne t'a visiblement pas chargé, l'athlète peut écrire /coach-prizm en tête
 de sa question.

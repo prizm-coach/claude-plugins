@@ -1,7 +1,7 @@
 {
   "name": "prizm",
   "displayName": "Prizm",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Les données d'entraînement d'endurance d'un athlète Prizm : forme du jour, zones et seuils, plan de la semaine, séances réalisées, saison et courses. L'accès est personnel, limité au compte de l'athlète, et coupé quand il le décide.",
   "author": {
     "name": "Prizm",
