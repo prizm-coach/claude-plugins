@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "prizm",
+      "name": "prizm-coach",
       "source": "./prizm-claude-code",
       "description": "Connecteur Prizm (forme, zones, plan, séances, saison, courses) et skill coach-prizm.",
       "category": "sports"

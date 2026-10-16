@@ -8,7 +8,7 @@ semaine, séances réalisées, saison et courses. Le plugin apporte le connecteu
 
 ```bash
 claude plugin marketplace add prizm-coach/claude-plugins
-claude plugin install prizm@prizm-plugins
+claude plugin install prizm-coach@prizm-plugins
 ```
 
 Dans une session Claude Code, tape ensuite `/mcp`, choisis **prizm** et connecte-toi à
@@ -18,7 +18,7 @@ Le skill s'appelle `/prizm:coach-prizm`.
 ## Couper l'accès
 
 Depuis ton espace Prizm (`https://assistant.prizm-coach.com/espace.html`), ou en
-désinstallant le plugin : `claude plugin uninstall prizm@prizm-plugins`.
+désinstallant le plugin : `claude plugin uninstall prizm-coach@prizm-plugins`.
 
 ## Ce que fait ce plugin, et ce qu'il envoie
 
