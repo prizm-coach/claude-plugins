@@ -1,7 +1,7 @@
 # Prizm — plugins pour Claude Code
 
 Place de marché (marketplace) de plugins Claude Code publiée par Prizm
-(<https://prizm-coach.com/>). Elle contient un plugin, `prizm-coach`.
+(<https://prizm-coach.com/>). Elle contient un plugin, `prizm`.
 
 ## Ce que fait le plugin
 
@@ -27,14 +27,14 @@ actions (par exemple noter une séance), toujours après relecture avec toi.
 
 ```text
 /plugin marketplace add prizm-coach/claude-plugins
-/plugin install prizm-coach@prizm-plugins
+/plugin install prizm@prizm-plugins
 ```
 
 Ou en ligne de commande :
 
 ```bash
 claude plugin marketplace add prizm-coach/claude-plugins
-claude plugin install prizm-coach@prizm-plugins
+claude plugin install prizm@prizm-plugins
 ```
 
 `prizm-coach/claude-plugins` est `propriétaire/nom-du-dépôt` sur GitHub, ou une URL Git.
